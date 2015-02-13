@@ -1,0 +1,5 @@
+library(rvest)
+post_page <- html("http://www.r-bloggers.com/why-you-should-start-by-learning-data-visualization-and-manipulation/")
+post_content <- html_text(html_node(post, 'div#post-92269'))
+words <- unlist(strsplit(post_content, split=' '))
+sum(grepl('insight(s)?', tolower(words)))
